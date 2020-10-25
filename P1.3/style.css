@@ -1,0 +1,40 @@
+body {
+    background-image: url(media/bg.png);
+    background-repeat: repeat;
+    width: 800px;
+    text-align: center;
+    font-family: sans-serif;
+}
+nav.pages {
+    position: absolute;
+    top: 0px;
+    margin-left: 52%;
+    width: 360px;
+    height: 40px;
+    padding-top: 1px;
+    background-color: black;
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+a:link {
+    color: white;
+}
+a:visited {
+    color: white;
+}
+a:hover {
+    color: greenyellow;
+}
+#activepage {
+    color: greenyellow;
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.main {
+    margin-top: 50px;
+}
