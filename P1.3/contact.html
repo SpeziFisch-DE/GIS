@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <title>Cantact</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <div id="headerbg"></div>
-            <div class="sticky">
-                <span class="dot"></span>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cantact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div id="headerbg"></div>
+        <div class="sticky">
+            <span class="dot"></span>
             <nav class="pages">
-                <p><a href="/GIS/index.html"class="nav">Navigation</a> | <a href="index.html"class="nav">Über Mich</a> | <a href="portfolio.html"class="nav">Portfolio</a> | <a href="contact.html" class="nav" id="activepage">Kontaktdaten</a></p>
+                <p><a href="/GIS/index.html" class="nav">Navigation</a> | <a href="index.html" class="nav">Über Mich</a>
+                    | <a href="portfolio.html" class="nav">Portfolio</a> | <a href="contact.html" class="nav"
+                        id="activepage">Kontaktdaten</a></p>
             </nav>
             <nav class="social">
                 <a href="" class="social"><img src="media/icon_facebook.png" width="30"></a>
                 <a href="" class="social"><img src="media/twitter.png" width="30"></a>
             </nav>
         </div>
-        </header>
-        <main>
-            <h1>Kontakt-Formular</h1>
-            <table>
-                <tr>
-                    <td>email: </td>
-                    <td><a href="mailto:fabian.alexander.mieg@hs-furtwangen.de">fabian.alexander.mieg@hs-furtwangen.de</a></td>
-                </tr>
-                <tr>
-                    <td>tel: </td>
-                    <td>013824952847 (fake)</td>
-                </tr>
-            </table>
-        </main>
-    </body>
+    </header>
+    <main>
+        <h1>Kontakt-Formular</h1>
+        <form>
+            <fieldset>
+                <legend>Ihre Kontaktdaten</legend>
+                <input type="text" name="Name" id="firstname" placeholder="Name" required><br>
+                <input type="text" name="" id="lastname" placeholder="Nachname" required><br>
+                <input type="email" name="" id="mail" placeholder="e-mail" required><br>
+            </fieldset>
+            <fieldset>
+                <legend>Ihre Nachricht</legend>
+                <textarea id="message" placeholder="Nachricht" required cols="50px"></textarea><br>
+                <input type="submit">
+            </fieldset>
+        </form>
+    </main>
+</body>
+
 </html>

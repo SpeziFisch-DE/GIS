@@ -57,6 +57,7 @@ a:hover.social {
     position: fixed;
     top: 0;
     width: 800px;
+    height: 50px;
 }
 .dot {
     position: relative;
@@ -67,4 +68,9 @@ a:hover.social {
     border-radius: 0% 0% 50% 50%;
     background-color: greenyellow;
     display: inline-block;
+}
+form {
+    margin: 10%;
+    align-content: left;
+    text-align: left;
 }
