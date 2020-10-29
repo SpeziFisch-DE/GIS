@@ -81,12 +81,28 @@ form {
 #Textlink {
     margin-top: 600px;
 }
+.flexcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 }
 
-@media screen and (max-width: 1024px) and(min-width: 600px){
-
+@media screen and (min-width: 600px){
+body {
+    margin: auto;
+    background-image: url(media/bg.png);
+    background-repeat: repeat;
+    align-content: center;
+    text-align: center;
+    font-family: sans-serif;
+}
 }
 
 @media screen and (max-width: 600px){
-
+    body {
+        margin: auto;
+        background-image: url(media/bg.png);
+        background-repeat: repeat;
+    }
 }
