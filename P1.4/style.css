@@ -1,5 +1,4 @@
 
-@media screen and (min-width: 1024px){
 body {
     margin: auto;
     background-image: url(media/bg.png);
@@ -51,6 +50,16 @@ a:hover.nav {
     background-repeat: repeat;
     display: inline-block;
 }
+a.social img {    
+    width: 30px;
+    height: 30px;
+    transition: width 0.5s;
+    transition: height 0.5s;
+}
+a.social img:hover{
+    width: 40px;
+    height: 40px;
+}
 a:hover.social {
     filter: invert(100%);
 }
@@ -86,23 +95,56 @@ form {
     flex-direction: row;
     justify-content: center;
 }
-}
 
-@media screen and (min-width: 600px){
-body {
-    margin: auto;
-    background-image: url(media/bg.png);
-    background-repeat: repeat;
-    align-content: center;
-    text-align: center;
-    font-family: sans-serif;
-}
-}
-
-@media screen and (max-width: 600px){
+@media screen and (max-width : 1024px){
     body {
-        margin: auto;
-        background-image: url(media/bg.png);
-        background-repeat: repeat;
+        margin-top: 100px;
+    }
+    nav.pages {
+        height: 50px;
+        margin-left: 55%;
+    }
+    nav.pages p {
+        font-size: 20px;
+    }
+    .dot {
+        width: 250px;
+        height: 250px;
+        left: 30%;
+    }
+    nav.social {
+        left: 30%;
+        top: -165px;
+    }
+    nav.social a img {
+        height: 40px;
+        width: 40px;
+    }
+    a.social img:hover{
+        width: 50px;
+        height: 50px;
+    }
+    #headerbg {
+        height: 60px;
+    }
+    .tile {
+        margin: 50px;
+    }
+    img[alt=profilpic]{
+        height: 250px;
+    }
+}
+
+
+@media screen and (max-width : 600px){
+    body {
+        margin-top: 200px;
+        width: 100%;
+    }
+    img[alt=profilpic]{
+        height: 300px;
+    }
+    .flexcontainer {
+        display: block;
     }
 }
