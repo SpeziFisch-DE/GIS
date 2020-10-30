@@ -146,5 +146,7 @@ form {
     }
     .flexcontainer {
         display: block;
+        flex-direction: unset;
+        justify-content: unset;
     }
 }
