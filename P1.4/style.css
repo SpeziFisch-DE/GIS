@@ -96,7 +96,7 @@ form {
     justify-content: center;
 }
 
-@media screen and (max-width : 1024px){
+@media screen and (max-device-width : 1024px){
     body {
         margin-top: 100px;
     }
@@ -132,5 +132,10 @@ form {
     }
     img[alt=profilpic]{
         height: 250px;
+    }
+}
+@media screen and (max-device-width : 600px){
+    body {
+        margin: 150px;
     }
 }
