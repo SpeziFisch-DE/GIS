@@ -136,6 +136,38 @@ form {
 }
 @media screen and (max-device-width : 600px){
     body {
-        margin: 150px;
+        margin-top: 250px;
+        width: 100%;
+    }
+    nav.pages {
+        top: -30px;
+        height: 100px;
+        width: 90%;
+        margin-left: 15%;
+    }
+    nav.pages p {
+        font-size: 45px;
+    }
+    .dot {
+        width: 300px;
+        height: 300px;
+        left: 12%;
+    }
+    nav.social {
+        left: 12%;
+        top: -190px;
+    }
+    nav.social a img {
+        height: 70px;
+        width: 70px;
+    }
+    a.social img:hover{
+        width: 90px;
+        height: 90px;
+    }
+    .flexcontainer {
+        display: block;
+        flex-direction: unset;
+        justify-content: unset;
     }
 }

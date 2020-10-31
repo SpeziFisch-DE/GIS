@@ -80,3 +80,13 @@ form {
 #Textlink {
     margin-top: 600px;
 }
+@media screen and (max-width: 1024px) {
+    body {
+        margin-top: 200px;
+    }
+}
+@media screen and (max-width: 600px) {
+    body {
+        margin-top: 400px;
+    }
+}
