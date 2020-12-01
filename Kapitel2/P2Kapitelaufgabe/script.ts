@@ -1,10 +1,25 @@
-namespace Kapitelaufgabe2 {
+namespace Kapitelaufgabe2Script {
 
     //DatenKlassen
     export class SwordElement {
-        name: string;
         typeID: number;
         link: string;
     }
 
+    export interface SwordElementInterface {
+        typeID: number;
+        link: string;
+    }
+
+    export interface MySword {
+        klinge: SwordElement;
+        griff: SwordElement;
+        knauf: SwordElement;
+    }
+
+    export interface EverySwordElement {
+        klinge: SwordElement[];
+        griff: SwordElement[];
+        knauf: SwordElement[];
+    }
 }

@@ -1,9 +1,9 @@
 "use strict";
-var Kapitelaufgabe2;
-(function (Kapitelaufgabe2) {
+var Kapitelaufgabe2Script;
+(function (Kapitelaufgabe2Script) {
     //DatenKlassen
     class SwordElement {
     }
-    Kapitelaufgabe2.SwordElement = SwordElement;
-})(Kapitelaufgabe2 || (Kapitelaufgabe2 = {}));
+    Kapitelaufgabe2Script.SwordElement = SwordElement;
+})(Kapitelaufgabe2Script || (Kapitelaufgabe2Script = {}));
 //# sourceMappingURL=script.js.map
