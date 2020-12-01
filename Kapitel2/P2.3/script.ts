@@ -40,7 +40,7 @@ namespace Kapitel2P3 {
 
     function drawRect(rekt: Rechteck): void {
         let newRect: HTMLDivElement = document.createElement("div");
-        newRect.setAttribute("style", "position: absolute" + ";background-color: black" + ";height:" + rekt.edgeB + "px ;width:" + rekt.edgeA + "px ;margin: " + rekt.yPos + "px 0" + "px 0px " + rekt.xPos + "px")
+        newRect.setAttribute("style", "position: absolute" + ";background-color: black" + ";height:" + rekt.edgeB + "px ;width:" + rekt.edgeA + "px ;margin: " + rekt.yPos + "px 0" + "px 0px " + rekt.xPos + "px");
         rectSpace.appendChild(newRect);
     }
 

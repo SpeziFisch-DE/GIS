@@ -1,6 +1,7 @@
-body {
-    align-content: center;
+
+#Selection img {
+    width: 100px;
 }
-.selection img {
-    width: 150px;
+.selected {
+    border: 2px solid green;
 }
