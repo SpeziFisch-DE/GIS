@@ -28,9 +28,9 @@ var Kapitel2P2;
         }
     }
     console.log(isEven(-5));
-    let student1;
-    let student2;
-    let student3;
+    let student1 = { name: "Anna Lena", matrikelnummer: 456789, studiengang: "MM" };
+    let student2 = { name: "Anna Lena", matrikelnummer: 456789, studiengang: "MM" };
+    let student3 = { name: "Anna Lena", matrikelnummer: 456789, studiengang: "MM" };
     student1.name = "Hans Peter";
     student2.name = "Max Mustermann";
     student3.name = "Petra Müller";
@@ -47,21 +47,21 @@ var Kapitel2P2;
         console.log(studierender.matrikelnummer);
         console.log(studierender.studiengang);
     }
+    showInfo(studierende[0]);
     showInfo(studierende[1]);
     showInfo(studierende[2]);
     showInfo(studierende[3]);
-    showInfo(studierende[4]);
     //Aufgabe 2
     function backwards(_numbers) {
-        let backwards;
-        for (let i = 0; i < _numbers.length; i++) {
-            backwards.push(_numbers[_numbers.length - i]);
+        let backwards = [];
+        for (let i = _numbers.length - 1; i >= 0; i--) {
+            backwards.push(_numbers[i]);
         }
         return backwards;
     }
-    backwards([3, 2, 1]);
+    console.log(backwards([3, 2, 1]));
     function join(_a1, _a2) {
-        let joined;
+        let joined = [];
         for (let i = 0; i < _a1.length; i++) {
             joined.push(_a1[i]);
         }
@@ -70,9 +70,9 @@ var Kapitel2P2;
         }
         return joined;
     }
-    join([1, 2], [3, 4]);
+    console.log(join([1, 2], [3, 4]));
     function split(_a, _i1, _i2) {
-        let splitted;
+        let splitted = [];
         if ((_i1 > _i2) && (_i1 > 0) && (_i2 > 0)) {
             let save = _i1;
             _i1 = _i2;
@@ -85,9 +85,17 @@ var Kapitel2P2;
         }
         return splitted;
     }
-    split([1, 2, 3, 4, 5, 6], 0, 4);
+    console.log(split([1, 2, 3, 4, 5, 6], 0, 4));
     //Aufgabe 3 a
     let canvas = document.getElementById("myFirstCanvas");
     let context = canvas.getContext("2d");
+    context.lineWidth = 10;
+    context.beginPath();
+    context.rect(10, 10, 200, 200);
+    context.fillRect(100, 100, 200, 200);
+    context.moveTo(900, 900);
+    context.bezierCurveTo(5, 3, 2, 3, 800, 200);
+    context.closePath();
+    context.stroke();
 })(Kapitel2P2 || (Kapitel2P2 = {}));
 //# sourceMappingURL=script.js.map

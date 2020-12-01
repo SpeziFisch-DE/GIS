@@ -35,9 +35,9 @@ namespace Kapitel2P2 {
         studiengang: string;
     }
 
-    let student1: Student;
-    let student2: Student;
-    let student3: Student;
+    let student1: Student = { name: "Anna Lena", matrikelnummer: 456789, studiengang: "MM" };
+    let student2: Student = { name: "Anna Lena", matrikelnummer: 456789, studiengang: "MM" };
+    let student3: Student = { name: "Anna Lena", matrikelnummer: 456789, studiengang: "MM" };
     student1.name = "Hans Peter";
     student2.name = "Max Mustermann";
     student3.name = "Petra Müller";
@@ -56,26 +56,26 @@ namespace Kapitel2P2 {
         console.log(studierender.studiengang);
     }
 
+    showInfo(studierende[0]);
     showInfo(studierende[1]);
     showInfo(studierende[2]);
     showInfo(studierende[3]);
-    showInfo(studierende[4]);
 
 
 
     //Aufgabe 2
     function backwards(_numbers: number[]): number[] {
-        let backwards: number[];
-        for (let i: number = 0; i < _numbers.length; i++) {
-            backwards.push(_numbers[_numbers.length - i]);
+        let backwards: number[] = [];
+        for (let i: number = _numbers.length - 1; i >= 0; i--) {
+            backwards.push(_numbers[i]);
         }
         return backwards;
     }
 
-    backwards([3, 2, 1]);
+    console.log(backwards([3, 2, 1]));
 
     function join(_a1: number[], _a2: number[]): number[] {
-        let joined: number[];
+        let joined: number[] = [];
         for (let i: number = 0; i < _a1.length; i++) {
             joined.push(_a1[i]);
         }
@@ -85,10 +85,10 @@ namespace Kapitel2P2 {
         return joined;
     }
 
-    join([1, 2], [3, 4]);
+    console.log(join([1, 2], [3, 4]));
 
     function split(_a: number[], _i1: number, _i2: number): number[] {
-        let splitted: number[];
+        let splitted: number[] = [];
         if ((_i1 > _i2) && (_i1 > 0) && (_i2 > 0)) {
             let save: number = _i1;
             _i1 = _i2;
@@ -102,11 +102,18 @@ namespace Kapitel2P2 {
         return splitted;
     }
 
-    split([1, 2, 3, 4, 5, 6], 0, 4);
+    console.log(split([1, 2, 3, 4, 5, 6], 0, 4));
 
 
     //Aufgabe 3 a
     let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("myFirstCanvas");
     let context: CanvasRenderingContext2D = canvas.getContext("2d");
-
+    context.lineWidth = 10;
+    context.beginPath();
+    context.rect(10, 10, 200, 200);
+    context.fillRect(100, 100, 200, 200);
+    context.moveTo(900, 900);
+    context.bezierCurveTo(5, 3, 2, 3, 800, 200);
+    context.closePath();
+    context.stroke();
 }
