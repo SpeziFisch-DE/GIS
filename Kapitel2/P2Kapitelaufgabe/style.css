@@ -2,6 +2,12 @@
 #Selection img {
     width: 100px;
 }
+#finished img {
+    width: 100px;
+}
 .selected {
     border: 2px solid green;
+}
+.end {
+    display: block;
 }
