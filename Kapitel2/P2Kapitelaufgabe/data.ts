@@ -3,9 +3,11 @@ namespace Kapitelaufgabe2Script {
     export let griff: SwordElement[] = [];
     export let knauf: SwordElement[] = [];
 
-    function elementsToJSON(): string{
+    export function elementsToJSON(): string {
         let swordElements: EverySwordElement = {klinge: klinge, griff: griff, knauf: knauf};
         let json: string = JSON.stringify(swordElements);
         return json;
     }
+
+    
 }

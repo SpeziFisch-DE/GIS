@@ -9,5 +9,6 @@ var Kapitelaufgabe2Script;
         let json = JSON.stringify(swordElements);
         return json;
     }
+    Kapitelaufgabe2Script.elementsToJSON = elementsToJSON;
 })(Kapitelaufgabe2Script || (Kapitelaufgabe2Script = {}));
 //# sourceMappingURL=data.js.map

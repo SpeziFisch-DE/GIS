@@ -1,0 +1,32 @@
+{
+    "klinge": [
+        {
+            "typeID": 0,
+            "link": "Media/Klingen/klinge1.png"
+        },
+        {
+            "typeID": 0,
+            "link": "Media/Klingen/klinge2.png"
+        }
+    ],
+    "griff": [
+        {
+            "typeID": 1,
+            "link": "Media/Griffe/griff1.png"
+        },
+        {
+            "typeID": 1,
+            "link": "Media/Griffe/griff2.png"
+        }
+    ],
+    "knauf": [
+        {
+            "typeID": 2,
+            "link": "Media/Knaeufe/knauf1.png"
+        },
+        {
+            "typeID": 2,
+            "link": "Media/Knaeufe/knauf2.png"
+        }
+    ]
+}
