@@ -4,6 +4,7 @@ var Kapitelaufgabe2Script;
     //finding HTML Elements
     let imageDiv = document.getElementById("Selection");
     let imageDivFinished = document.getElementById("finished");
+    let responseDiv = document.getElementById("serverResponse");
     let buttonSave = document.getElementById("save");
     let buttonCancel = document.getElementById("cancel");
     let buttonNew = document.getElementById("new");
@@ -162,11 +163,14 @@ var Kapitelaufgabe2Script;
         imageDivFinished.appendChild(imageKlinge);
         imageDivFinished.appendChild(imageGriff);
         imageDivFinished.appendChild(imageKnauf);
+        console.log(JSON.stringify(localStorage));
         async function sendCache(url) {
-            let browserCacheData = JSON.parse(localStorage.getItem("k"));
+            let browserCacheData = JSON.pars(JSON.stringify(localStorage));
             let query = new URLSearchParams(browserCacheData);
             url = url + "?" + query.toString();
-            await fetch(url);
+            let response = await fetch(url);
+            let responseText = await response.json();
+            let responseDisplay;
         }
     }
 })(Kapitelaufgabe2Script || (Kapitelaufgabe2Script = {}));

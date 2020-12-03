@@ -2,6 +2,7 @@ namespace Kapitelaufgabe2Script {
     //finding HTML Elements
     let imageDiv: HTMLElement = document.getElementById("Selection");
     let imageDivFinished: HTMLElement = document.getElementById("finished");
+    let responseDiv: HTMLElement = document.getElementById("serverResponse");
     let buttonSave: HTMLElement = document.getElementById("save");
     let buttonCancel: HTMLElement = document.getElementById("cancel");
     let buttonNew: HTMLElement = document.getElementById("new");
@@ -196,11 +197,20 @@ namespace Kapitelaufgabe2Script {
         imageDivFinished.appendChild(imageGriff);
         imageDivFinished.appendChild(imageKnauf);
 
+        console.log(JSON.stringify(localStorage));
+
+        interface antwort {
+            error: string;
+            message: string;
+        }
+
         async function sendCache(url: string): Promise<void> {
-            let browserCacheData: JSON = JSON.parse(localStorage.getItem("k"));
+            let browserCacheData: JSON = JSON.pars(JSON.stringify(localStorage));
             let query: URLSearchParams = new URLSearchParams(<any>browserCacheData);
             url = url + "?" + query.toString();
-            await fetch(url);
+            let response: Response = await fetch(url);
+            let responseText: antwort = await response.json();
+            let responseDisplay: HTML
         }
     }
 

@@ -8,6 +8,4 @@ namespace Kapitelaufgabe2Script {
         let json: string = JSON.stringify(swordElements);
         return json;
     }
-
-    
 }
