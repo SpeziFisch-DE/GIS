@@ -182,5 +182,9 @@ var Kapitelaufgabe2Script;
         }
         sendCache("https://gis-communication.herokuapp.com");
     }
+    if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "index.html") {
+        localStorage.clear();
+        window.open("Select.html", "_self");
+    }
 })(Kapitelaufgabe2Script || (Kapitelaufgabe2Script = {}));
 //# sourceMappingURL=script.js.map
