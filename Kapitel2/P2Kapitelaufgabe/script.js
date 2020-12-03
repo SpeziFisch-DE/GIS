@@ -9,7 +9,7 @@ var Kapitelaufgabe2Script;
     let buttonCancel = document.getElementById("cancel");
     let buttonNew = document.getElementById("new");
     //neccesary for navigation
-    let selectionTypeID = 0; //which Element is to be selected? 0=Klinge 1=Griff 2=Knauf
+    let selectionTypeID = 0; //which Element is to be selected/displayed? 0=Klinge 1=Griff 2=Knauf
     //loading selected Elements aside  
     let imageKlinge = document.createElement("img");
     let imageGriff = document.createElement("img");
@@ -26,24 +26,24 @@ var Kapitelaufgabe2Script;
         div.appendChild(imageKnauf);
     }
     loadingImagesTo(imageDivFinished);
-    //#region Choosing Element
+    // Choosing Element
     function handleClickSetChoice(_event) {
         let images = imageDiv.children;
         for (let i = 0; i < images.length; i++) {
             if (images.item(i) == _event.target) { //finding Element to be selected
                 let prevImg = document.getElementsByClassName("selected");
                 if (prevImg.item(0) != null) {
-                    prevImg.item(0).className = "";
-                } // unset previous selected Element
+                    prevImg.item(0).className = ""; // unset previous selected Element
+                }
                 images.item(i).className = "selected";
                 if (selectionTypeID == 0) {
-                    imageKlinge.src = images.item(i).getAttribute("src");
+                    imageKlinge.src = images.item(i).getAttribute("src"); //Get image src for Display aside
                 }
                 if (selectionTypeID == 1) {
-                    imageGriff.src = images.item(i).getAttribute("src");
+                    imageGriff.src = images.item(i).getAttribute("src"); //Get image src for Display aside
                 }
                 if (selectionTypeID == 2) {
-                    imageKnauf.src = images.item(i).getAttribute("src");
+                    imageKnauf.src = images.item(i).getAttribute("src"); //Get image src for Display aside
                 }
             }
         }
@@ -55,8 +55,6 @@ var Kapitelaufgabe2Script;
         imageDiv.appendChild(imageElement);
     }
     Kapitelaufgabe2Script.addElementAuswahl = addElementAuswahl;
-    //#endregion
-    //#endregion
     //DatenKlassen
     class SwordElement {
         constructor(_typeID, _link) {
@@ -65,7 +63,7 @@ var Kapitelaufgabe2Script;
         }
     }
     Kapitelaufgabe2Script.SwordElement = SwordElement;
-    function elementsFromJSON(jsonString, requestedTypeID) {
+    function elementsFromJSONString(jsonString, requestedTypeID) {
         let arrayFromJASON = JSON.parse(jsonString);
         Object.keys(arrayFromJASON).forEach(key => {
             if (key == "klinge" || key == "griff" || key == "knauf") {
@@ -78,22 +76,22 @@ var Kapitelaufgabe2Script;
             }
         });
     }
-    Kapitelaufgabe2Script.elementsFromJSON = elementsFromJSON;
+    Kapitelaufgabe2Script.elementsFromJSONString = elementsFromJSONString;
     async function readElementsFromJSON(_path) {
         let response = await fetch(_path);
         let jsonString = await response.text();
-        elementsFromJSON(jsonString, selectionTypeID);
+        elementsFromJSONString(jsonString, selectionTypeID);
     }
     Kapitelaufgabe2Script.readElementsFromJSON = readElementsFromJSON;
-    if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") {
+    if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") { // read first selection set
         readElementsFromJSON("data.json");
     }
     function nextSelection() {
-        if (selectionTypeID < 2) {
+        if (selectionTypeID < 2) { //is still there still an item to be selected?
             selectionTypeID += 1;
             let images = imageDiv.children;
             console.log("to delete" + images.length);
-            for (let i = images.length - 1; i >= 0; i--) {
+            for (let i = images.length - 1; i >= 0; i--) { // deleting existing selection-set
                 images.item(i).remove();
                 console.log("deleted" + i);
             }
@@ -103,8 +101,7 @@ var Kapitelaufgabe2Script;
             window.open("EndSelection.html", "_self");
         }
     }
-    //#region Button Click Handler
-    if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") {
+    if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") { //#region Button declaration for Selection page
         buttonSave.addEventListener("click", handleClickSave);
         function handleClickSave(_event) {
             let imgs = document.getElementsByClassName("selected");
@@ -145,16 +142,15 @@ var Kapitelaufgabe2Script;
             readElementsFromJSON("data.json");
             console.log("selection canceled!");
         }
-    }
+    } //#endregion Button declaration for Selection page
     if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "EndSelection.html") {
-        buttonNew.addEventListener("click", handleClickNew);
+        buttonNew.addEventListener("click", handleClickNew); // Button declaration for Display page
         function handleClickNew(_event) {
             localStorage.clear();
             selectionTypeID = 0;
             window.open("Select.html", "_self");
         }
-        //reading local storage
-        loadingImagesTo(imageDivFinished);
+        loadingImagesTo(imageDivFinished); // reading local storage for Display
         imageKlinge.src = localStorage.getItem("klinge");
         imageGriff.src = localStorage.getItem("griff");
         imageKnauf.src = localStorage.getItem("knauf");
@@ -176,8 +172,9 @@ var Kapitelaufgabe2Script;
             responseDiv.appendChild(responseDisplay);
         }
         sendCache("https://gis-communication.herokuapp.com");
+        //#endregion Sending Cache to Server
     }
-    if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "index.html") {
+    if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "index.html") { // redirect from index.html
         localStorage.clear();
         window.open("Select.html", "_self");
     }

@@ -16,14 +16,19 @@ button {
 }
 aside {
     position: fixed;
-    top: 100px;
+    top: 50px;
     right: 200px;
+}
+#Selection {
+    position: relative;
+    right: auto;
+    right: 40%;
 }
 #Selection img {
     width: 100px;
 }
 #finished img {
-    width: 200px;
+    width: 150px;
 }
 #message {
     color: green;

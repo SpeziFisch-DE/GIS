@@ -7,6 +7,22 @@
         {
             "typeID": 0,
             "link": "Media/Klingen/klinge2.png"
+        },
+        {
+            "typeID": 0,
+            "link": "Media/Klingen/klinge3.png"
+        },
+        {
+            "typeID": 0,
+            "link": "Media/Klingen/klinge4.png"
+        },
+        {
+            "typeID": 0,
+            "link": "Media/Klingen/klinge5.png"
+        },
+        {
+            "typeID": 0,
+            "link": "Media/Klingen/klinge6.png"
         }
     ],
     "griff": [
@@ -17,6 +33,22 @@
         {
             "typeID": 1,
             "link": "Media/Griffe/griff2.png"
+        },
+        {
+            "typeID": 1,
+            "link": "Media/Griffe/griff3.png"
+        },
+        {
+            "typeID": 1,
+            "link": "Media/Griffe/griff4.png"
+        },
+        {
+            "typeID": 1,
+            "link": "Media/Griffe/griff5.png"
+        },
+        {
+            "typeID": 1,
+            "link": "Media/Griffe/griff6.png"
         }
     ],
     "knauf": [
@@ -27,6 +59,22 @@
         {
             "typeID": 2,
             "link": "Media/Knaeufe/knauf2.png"
+        },
+        {
+            "typeID": 2,
+            "link": "Media/Knaeufe/knauf3.png"
+        },
+        {
+            "typeID": 2,
+            "link": "Media/Knaeufe/knauf4.png"
+        },
+        {
+            "typeID": 2,
+            "link": "Media/Knaeufe/knauf5.png"
+        },
+        {
+            "typeID": 2,
+            "link": "Media/Knaeufe/knauf6.png"
         }
     ]
 }
