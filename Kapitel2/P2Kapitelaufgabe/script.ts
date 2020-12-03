@@ -197,21 +197,30 @@ namespace Kapitelaufgabe2Script {
         imageDivFinished.appendChild(imageGriff);
         imageDivFinished.appendChild(imageKnauf);
 
-        console.log(JSON.stringify(localStorage));
-
-        interface antwort {
+        interface Antwort {
             error: string;
             message: string;
         }
 
         async function sendCache(url: string): Promise<void> {
-            let browserCacheData: JSON = JSON.pars(JSON.stringify(localStorage));
+            let browserCacheData: JSON = JSON.parse(JSON.stringify(localStorage));
             let query: URLSearchParams = new URLSearchParams(<any>browserCacheData);
             url = url + "?" + query.toString();
             let response: Response = await fetch(url);
-            let responseText: antwort = await response.json();
-            let responseDisplay: HTML
+            let responseText: Antwort = await response.json();
+            let responseDisplay: HTMLElement = document.createElement("p");
+            if (responseText.message != undefined) {
+                responseDisplay.appendChild(document.createTextNode("Server-Antwort: " + responseText.message));
+                responseDisplay.id = "message";
+            }
+            if (responseText.error != undefined) {
+                responseDisplay.appendChild(document.createTextNode("Fehler: " + responseText.error));
+                responseDisplay.id = "error";
+            }
+            responseDiv.appendChild(responseDisplay);
         }
+
+        sendCache("https://gis-communication.herokuapp.com");
     }
 
 

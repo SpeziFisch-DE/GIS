@@ -163,15 +163,24 @@ var Kapitelaufgabe2Script;
         imageDivFinished.appendChild(imageKlinge);
         imageDivFinished.appendChild(imageGriff);
         imageDivFinished.appendChild(imageKnauf);
-        console.log(JSON.stringify(localStorage));
         async function sendCache(url) {
-            let browserCacheData = JSON.pars(JSON.stringify(localStorage));
+            let browserCacheData = JSON.parse(JSON.stringify(localStorage));
             let query = new URLSearchParams(browserCacheData);
             url = url + "?" + query.toString();
             let response = await fetch(url);
             let responseText = await response.json();
-            let responseDisplay;
+            let responseDisplay = document.createElement("p");
+            if (responseText.message != undefined) {
+                responseDisplay.appendChild(document.createTextNode("Server-Antwort: " + responseText.message));
+                responseDisplay.id = "message";
+            }
+            if (responseText.error != undefined) {
+                responseDisplay.appendChild(document.createTextNode("Fehler: " + responseText.error));
+                responseDisplay.id = "error";
+            }
+            responseDiv.appendChild(responseDisplay);
         }
+        sendCache("https://gis-communication.herokuapp.com");
     }
 })(Kapitelaufgabe2Script || (Kapitelaufgabe2Script = {}));
 //# sourceMappingURL=script.js.map
