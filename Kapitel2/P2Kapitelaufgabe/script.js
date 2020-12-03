@@ -25,7 +25,6 @@ var Kapitelaufgabe2Script;
         div.appendChild(imageGriff);
         div.appendChild(imageKnauf);
     }
-    loadingImagesTo(imageDivFinished);
     // Choosing Element
     function handleClickSetChoice(_event) {
         let images = imageDiv.children;
@@ -84,6 +83,7 @@ var Kapitelaufgabe2Script;
     }
     Kapitelaufgabe2Script.readElementsFromJSON = readElementsFromJSON;
     if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") { // read first selection set
+        loadingImagesTo(imageDivFinished);
         readElementsFromJSON("data.json");
     }
     function nextSelection() {

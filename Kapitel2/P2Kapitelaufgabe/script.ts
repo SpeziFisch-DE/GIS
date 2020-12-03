@@ -31,7 +31,6 @@ namespace Kapitelaufgabe2Script {
         div.appendChild(imageGriff);
         div.appendChild(imageKnauf);
     }
-    loadingImagesTo(imageDivFinished);
 
 
 
@@ -105,6 +104,7 @@ namespace Kapitelaufgabe2Script {
         elementsFromJSONString(jsonString, selectionTypeID);
     }
     if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") { // read first selection set
+        loadingImagesTo(imageDivFinished);
         readElementsFromJSON("data.json");
     }
 
