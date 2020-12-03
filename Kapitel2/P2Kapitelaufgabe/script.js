@@ -162,6 +162,12 @@ var Kapitelaufgabe2Script;
         imageDivFinished.appendChild(imageKlinge);
         imageDivFinished.appendChild(imageGriff);
         imageDivFinished.appendChild(imageKnauf);
+        async function sendCache(url) {
+            let browserCacheData = JSON.parse(localStorage.getItem("k"));
+            let query = new URLSearchParams(browserCacheData);
+            url = url + "?" + query.toString();
+            await fetch(url);
+        }
     }
 })(Kapitelaufgabe2Script || (Kapitelaufgabe2Script = {}));
 //# sourceMappingURL=script.js.map

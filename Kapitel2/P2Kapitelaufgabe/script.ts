@@ -195,6 +195,13 @@ namespace Kapitelaufgabe2Script {
         imageDivFinished.appendChild(imageKlinge);
         imageDivFinished.appendChild(imageGriff);
         imageDivFinished.appendChild(imageKnauf);
+
+        async function sendCache(url: string): Promise<void> {
+            let browserCacheData: JSON = JSON.parse(localStorage.getItem("k"));
+            let query: URLSearchParams = new URLSearchParams(<any>browserCacheData);
+            url = url + "?" + query.toString();
+            await fetch(url);
+        }
     }
 
 
