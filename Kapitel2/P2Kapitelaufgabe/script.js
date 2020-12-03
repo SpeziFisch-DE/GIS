@@ -10,19 +10,22 @@ var Kapitelaufgabe2Script;
     let buttonNew = document.getElementById("new");
     //neccesary for navigation
     let selectionTypeID = 0; //which Element is to be selected? 0=Klinge 1=Griff 2=Knauf
-    //loading selected Elements aside        
+    //loading selected Elements aside  
     let imageKlinge = document.createElement("img");
     let imageGriff = document.createElement("img");
     let imageKnauf = document.createElement("img");
     imageKlinge.src = "";
     imageGriff.src = "";
     imageKnauf.src = "";
-    imageKlinge.className = "end";
-    imageGriff.className = "end";
-    imageKnauf.className = "end";
-    imageDivFinished.appendChild(imageKlinge);
-    imageDivFinished.appendChild(imageGriff);
-    imageDivFinished.appendChild(imageKnauf);
+    function loadingImagesTo(div) {
+        imageKlinge.className = "end";
+        imageGriff.className = "end";
+        imageKnauf.className = "end";
+        div.appendChild(imageKlinge);
+        div.appendChild(imageGriff);
+        div.appendChild(imageKnauf);
+    }
+    loadingImagesTo(imageDivFinished);
     //#region Choosing Element
     function handleClickSetChoice(_event) {
         let images = imageDiv.children;
@@ -151,18 +154,10 @@ var Kapitelaufgabe2Script;
             window.open("Select.html", "_self");
         }
         //reading local storage
-        let imageKlinge = document.createElement("img");
-        let imageGriff = document.createElement("img");
-        let imageKnauf = document.createElement("img");
+        loadingImagesTo(imageDivFinished);
         imageKlinge.src = localStorage.getItem("klinge");
         imageGriff.src = localStorage.getItem("griff");
         imageKnauf.src = localStorage.getItem("knauf");
-        imageKlinge.className = "end";
-        imageGriff.className = "end";
-        imageKnauf.className = "end";
-        imageDivFinished.appendChild(imageKlinge);
-        imageDivFinished.appendChild(imageGriff);
-        imageDivFinished.appendChild(imageKnauf);
         async function sendCache(url) {
             let browserCacheData = JSON.parse(JSON.stringify(localStorage));
             let query = new URLSearchParams(browserCacheData);
