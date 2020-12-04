@@ -82,7 +82,7 @@ namespace Kapitelaufgabe2Script {
         knauf: SwordElement[];
     }
 
-   
+
     export function elementsFromJSONString(jsonString: string, requestedTypeID: number): void { // for adding all Elements of one type to selection from JSON string
         let arrayFromJASON: EverySwordElement = JSON.parse(jsonString);
         Object.keys(arrayFromJASON).forEach(key => {
@@ -122,31 +122,34 @@ namespace Kapitelaufgabe2Script {
         }
     }
 
-    
+
     if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") { //#region Button declaration for Selection page
         buttonSave.addEventListener("click", handleClickSave);
         function handleClickSave(_event: Event): void {
-            let imgs: HTMLCollection = document.getElementsByClassName("selected");
-            let imgToSave: string = "nothing selected!";
-            if (imgs.item(0) != null) {
-                imgToSave = imgs.item(0).getAttribute("src");
+            let selectedImg: HTMLCollection = document.getElementsByClassName("selected");
+            if (selectedImg.item(0) != null) {
+                let imgs: HTMLCollection = document.getElementsByClassName("selected");
+                let imgToSave: string = "nothing selected!";
+                if (imgs.item(0) != null) {
+                    imgToSave = imgs.item(0).getAttribute("src");
+                }
+                if (selectionTypeID == 0) {
+                    localStorage.setItem("klinge", imgToSave);
+                    console.log("saved!");
+                    nextSelection();
+                } else if (selectionTypeID == 1) {
+                    localStorage.setItem("griff", imgToSave);
+                    console.log("saved!");
+                    nextSelection();
+                } else if (selectionTypeID == 2) {
+                    localStorage.setItem("knauf", imgToSave);
+                    console.log("saved!");
+                    nextSelection();
+                } else {
+                    console.log("Error: Selection could not be saved.");
+                }
+                console.log(imgToSave);
             }
-            if (selectionTypeID == 0) {
-                localStorage.setItem("klinge", imgToSave);
-                console.log("saved!");
-                nextSelection();
-            } else if (selectionTypeID == 1) {
-                localStorage.setItem("griff", imgToSave);
-                console.log("saved!");
-                nextSelection();
-            } else if (selectionTypeID == 2) {
-                localStorage.setItem("knauf", imgToSave);
-                console.log("saved!");
-                nextSelection();
-            } else {
-                console.log("Error: Selection could not be saved.");
-            }
-            console.log(imgToSave);
         }
 
         buttonCancel.addEventListener("click", handleClickCancel);
@@ -173,7 +176,7 @@ namespace Kapitelaufgabe2Script {
             window.open("Select.html", "_self");
         }
 
-        
+
         loadingImagesTo(imageDivFinished); // reading local storage for Display
         imageKlinge.src = localStorage.getItem("klinge");
         imageGriff.src = localStorage.getItem("griff");

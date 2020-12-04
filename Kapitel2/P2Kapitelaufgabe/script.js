@@ -14,13 +14,10 @@ var Kapitelaufgabe2Script;
     let imageKlinge = document.createElement("img");
     let imageGriff = document.createElement("img");
     let imageKnauf = document.createElement("img");
-    imageKlinge.src = "";
-    imageGriff.src = "";
-    imageKnauf.src = "";
+    imageKlinge.className = "end";
+    imageGriff.className = "end";
+    imageKnauf.className = "end";
     function loadingImagesTo(div) {
-        imageKlinge.className = "end";
-        imageGriff.className = "end";
-        imageKnauf.className = "end";
         div.appendChild(imageKlinge);
         div.appendChild(imageGriff);
         div.appendChild(imageKnauf);
@@ -104,30 +101,33 @@ var Kapitelaufgabe2Script;
     if (window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) == "Select.html") { //#region Button declaration for Selection page
         buttonSave.addEventListener("click", handleClickSave);
         function handleClickSave(_event) {
-            let imgs = document.getElementsByClassName("selected");
-            let imgToSave = "nothing selected!";
-            if (imgs.item(0) != null) {
-                imgToSave = imgs.item(0).getAttribute("src");
+            let selectedImg = document.getElementsByClassName("selected");
+            if (selectedImg.item(0) != null) {
+                let imgs = document.getElementsByClassName("selected");
+                let imgToSave = "nothing selected!";
+                if (imgs.item(0) != null) {
+                    imgToSave = imgs.item(0).getAttribute("src");
+                }
+                if (selectionTypeID == 0) {
+                    localStorage.setItem("klinge", imgToSave);
+                    console.log("saved!");
+                    nextSelection();
+                }
+                else if (selectionTypeID == 1) {
+                    localStorage.setItem("griff", imgToSave);
+                    console.log("saved!");
+                    nextSelection();
+                }
+                else if (selectionTypeID == 2) {
+                    localStorage.setItem("knauf", imgToSave);
+                    console.log("saved!");
+                    nextSelection();
+                }
+                else {
+                    console.log("Error: Selection could not be saved.");
+                }
+                console.log(imgToSave);
             }
-            if (selectionTypeID == 0) {
-                localStorage.setItem("klinge", imgToSave);
-                console.log("saved!");
-                nextSelection();
-            }
-            else if (selectionTypeID == 1) {
-                localStorage.setItem("griff", imgToSave);
-                console.log("saved!");
-                nextSelection();
-            }
-            else if (selectionTypeID == 2) {
-                localStorage.setItem("knauf", imgToSave);
-                console.log("saved!");
-                nextSelection();
-            }
-            else {
-                console.log("Error: Selection could not be saved.");
-            }
-            console.log(imgToSave);
         }
         buttonCancel.addEventListener("click", handleClickCancel);
         function handleClickCancel(_event) {
