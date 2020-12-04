@@ -20,13 +20,11 @@ namespace Kapitelaufgabe2Script {
     let imageKlinge: HTMLImageElement = document.createElement("img");
     let imageGriff: HTMLImageElement = document.createElement("img");
     let imageKnauf: HTMLImageElement = document.createElement("img");
-    imageKlinge.src = "";
-    imageGriff.src = "";
-    imageKnauf.src = "";
+    imageKlinge.className = "end";
+    imageGriff.className = "end";
+    imageKnauf.className = "end";
+
     function loadingImagesTo(div: HTMLElement): void {
-        imageKlinge.className = "end";
-        imageGriff.className = "end";
-        imageKnauf.className = "end";
         div.appendChild(imageKlinge);
         div.appendChild(imageGriff);
         div.appendChild(imageKnauf);
@@ -98,6 +96,7 @@ namespace Kapitelaufgabe2Script {
             }
         });
     }
+
     export async function readElementsFromJSON(_path: RequestInfo): Promise<void> { // for reading elements from JSON document
         let response: Response = await fetch(_path);
         let jsonString: string = await response.text();
@@ -149,6 +148,7 @@ namespace Kapitelaufgabe2Script {
             }
             console.log(imgToSave);
         }
+
         buttonCancel.addEventListener("click", handleClickCancel);
         function handleClickCancel(_event: Event): void {
             localStorage.clear();
@@ -185,6 +185,7 @@ namespace Kapitelaufgabe2Script {
             error: string;
             message: string;
         }
+
         async function sendCache(url: string): Promise<void> {
             let browserCacheData: JSON = JSON.parse(JSON.stringify(localStorage));
             let query: URLSearchParams = new URLSearchParams(<any>browserCacheData);
